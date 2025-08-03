@@ -5,7 +5,7 @@ import DynamicExchangeRate from "./DynamicExchangeRate";
 
 const SocialImpact = () => {
   const handleJoinRevolution = () => {
-    window.open("https://wa.me/+59171234567?text=Quiero%20unirme%20a%20la%20revolución%20financiera", "_blank");
+    window.open("https://t.me/zendaFinance_bot", "_blank");
   };
 
   const handleWaitlistClick = () => {

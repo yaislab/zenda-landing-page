@@ -9,7 +9,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
   
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/+59171234567?text=enviar", "_blank");
+    window.open("https://t.me/zendaFinance_bot", "_blank");
   };
 
   const handlePaymentClick = () => {
