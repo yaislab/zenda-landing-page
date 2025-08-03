@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   const handlePaymentClick = () => {
-    navigate('/pay.zenda');
+    navigate('/pay-zenda');
   };
 
   return (
