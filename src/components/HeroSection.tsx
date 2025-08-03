@@ -20,6 +20,10 @@ const HeroSection = () => {
     window.open('https://docs.google.com/forms/d/1-3X9asbS-wWko_AjcWGjnOBR6XmAaq2w6sE53eKu6cc/edit', '_blank');
   };
 
+  const handleTelegramClick = () => {
+    window.open('https://t.me/yaisethbot', '_blank');
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-8">
       {/* Invisible Payment Button - Top Right Corner */}
@@ -106,6 +110,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="xl"
+              onClick={handleTelegramClick}
               className="bg-white/20 backdrop-blur-sm border-white/40 text-white hover:bg-white/30 hover:border-white/60 hover:scale-105 transition-all duration-300 relative overflow-hidden group shadow-lg w-full sm:w-auto"
             >
               <div className="absolute inset-0 bg-secondary/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
