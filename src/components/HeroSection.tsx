@@ -3,6 +3,7 @@ import { MessageSquare, ArrowRight, DollarSign, Clock, Zap } from "lucide-react"
 import ZendaLogo from "./ZendaLogo";
 import heroImage from "@/assets/zenda-hero.jpg";
 import { useNavigate } from "react-router-dom";
+import DynamicExchangeRate from "./DynamicExchangeRate";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -13,6 +14,10 @@ const HeroSection = () => {
 
   const handlePaymentClick = () => {
     navigate('/pay-zenda');
+  };
+
+  const handleWaitlistClick = () => {
+    window.open('https://docs.google.com/forms/d/1-3X9asbS-wWko_AjcWGjnOBR6XmAaq2w6sE53eKu6cc/edit', '_blank');
   };
 
   return (
@@ -105,15 +110,36 @@ const HeroSection = () => {
             <span className="relative z-10 font-semibold">Ver cómo funciona</span>
           </Button>
         </div>
+
+        {/* Lista de Espera Button */}
+        <div className="mt-6 animate-slide-up-delay-3">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={handleWaitlistClick}
+            className="font-medium hover:scale-105 transition-all duration-300 bg-gradient-to-r from-secondary/20 to-primary/20 backdrop-blur-sm shadow-lg hover:from-secondary/30 hover:to-primary/30 border-secondary/30 hover:border-secondary/50 text-white group relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary/10 to-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <span className="relative z-10 flex items-center gap-2">
+              <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+              Formulario de Lista de Espera
+              <ArrowRight className="w-4 h-4 animate-slide-right" />
+            </span>
+          </Button>
+          <p className="text-sm text-white/70 mt-2 text-center animate-fade-in">
+            ¡Sé de los primeros en probar Zenda!
+          </p>
+        </div>
         
         {/* Enhanced Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto animate-slide-up-delay-3">
           <div className="text-center hover:scale-110 transition-transform duration-300 cursor-pointer group relative">
             <div className="absolute inset-0 bg-secondary/5 rounded-2xl blur-xl group-hover:bg-secondary/15 transition-all duration-300"></div>
             <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 group-hover:border-secondary/30 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2 animate-count-up group-hover:animate-money-bounce">
-                ~13 BOB
-              </div>
+              <DynamicExchangeRate 
+                variant="hero"
+                className="mb-2 animate-count-up group-hover:animate-money-bounce"
+              />
               <div className="text-sm opacity-80 group-hover:text-secondary transition-colors duration-300">por USDT</div>
               <div className="absolute top-2 right-2 w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
             </div>

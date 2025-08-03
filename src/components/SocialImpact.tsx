@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Users, Globe } from "lucide-react";
+import DynamicExchangeRate from "./DynamicExchangeRate";
 
 const SocialImpact = () => {
   const handleJoinRevolution = () => {
     window.open("https://wa.me/+59171234567?text=Quiero%20unirme%20a%20la%20revolución%20financiera", "_blank");
+  };
+
+  const handleWaitlistClick = () => {
+    window.open('https://docs.google.com/forms/d/1-3X9asbS-wWko_AjcWGjnOBR6XmAaq2w6sE53eKu6cc/edit', '_blank');
   };
 
   return (
@@ -42,7 +47,10 @@ const SocialImpact = () => {
                 <Globe className="w-8 h-8 text-secondary" />
               </div>
               <h3 className="font-heading text-2xl font-bold mb-4">Con Zenda</h3>
-              <div className="text-3xl font-bold text-secondary mb-2">~13 BOB</div>
+              <DynamicExchangeRate 
+                variant="social"
+                className="mb-2"
+              />
               <p className="text-muted-foreground">por USDT (acceso inmediato 24/7)</p>
             </CardContent>
           </Card>
@@ -83,15 +91,30 @@ const SocialImpact = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button 
-            variant="hero" 
-            size="xl"
-            onClick={handleJoinRevolution}
-            className="font-semibold"
-          >
-            Únete a la revolución financiera con Zenda
-          </Button>
-          <p className="text-sm text-muted-foreground mt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+            <Button 
+              variant="hero" 
+              size="xl"
+              onClick={handleJoinRevolution}
+              className="font-semibold"
+            >
+              Únete a la revolución financiera con Zenda
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={handleWaitlistClick}
+              className="font-medium bg-gradient-to-r from-secondary/10 to-primary/10 border-secondary/30 text-secondary hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 group relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-secondary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <span className="relative z-10 flex items-center gap-2">
+                <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+                Lista de Espera
+              </span>
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground">
             Construyendo el futuro de las remesas en Bolivia
           </p>
         </div>

@@ -1,5 +1,6 @@
 import { Clock, DollarSign, Smartphone, Shield, Zap, TrendingUp } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import DynamicExchangeRate from "./DynamicExchangeRate";
 
 const ValueProposition = () => {
   const values = [
@@ -14,7 +15,7 @@ const ValueProposition = () => {
     {
       icon: DollarSign,
       title: "Económica", 
-      description: "Bajas comisiones y tipo de cambio paralelo (~13 BOB/USDT) para maximizar tu dinero.",
+      description: "Bajas comisiones y tipo de cambio paralelo dinámico para maximizar tu dinero.",
       color: "text-secondary",
       accent: "bg-secondary/10",
       hoverColor: "group-hover:text-secondary"
@@ -105,6 +106,37 @@ const ValueProposition = () => {
               Más de <span className="text-secondary font-bold">10,000</span> transacciones exitosas
             </span>
           </div>
+        </div>
+
+        {/* Live Exchange Rate Section */}
+        <div className="mt-12 text-center animate-slide-up-delay-4">
+          <Card className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 border-0 shadow-lg backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
+                Cotización en Tiempo Real
+              </h3>
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground mb-1">Mercado Oficial</div>
+                  <div className="text-2xl font-bold text-destructive">6.96 BOB</div>
+                  <div className="text-xs text-muted-foreground">por USD</div>
+                </div>
+                <div className="text-4xl text-muted-foreground">vs</div>
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground mb-1">Con Zenda</div>
+                  <DynamicExchangeRate 
+                    variant="value"
+                    showDetails={true}
+                    className="text-2xl"
+                  />
+                  <div className="text-xs text-muted-foreground">por USDT</div>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Obtén hasta un <span className="text-secondary font-bold">87% más</span> por tu dinero
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
