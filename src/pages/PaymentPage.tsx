@@ -4,12 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, CreditCard, QrCode, Shield, Lock, CheckCircle } from "lucide-react";
 import ZendaLogo from "@/components/ZendaLogo";
+import QRPaymentCard from "@/components/QRPaymentCard";
 import { useNavigate } from "react-router-dom";
 
 const PaymentPage = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState<'qr' | 'card'>('qr');
+  const [qrPaymentConfirmed, setQrPaymentConfirmed] = useState(false);
   const [formData, setFormData] = useState({
     postalCode: '',
     address: '',
@@ -41,6 +43,15 @@ const PaymentPage = () => {
     } else {
       navigate('/');
     }
+  };
+
+  const handleQRPaymentConfirm = () => {
+    setQrPaymentConfirmed(true);
+    // Aquí podrías agregar lógica adicional como enviar datos al servidor
+    setTimeout(() => {
+      alert('¡Pago confirmado! Gracias por usar Zenda Finance.');
+      navigate('/');
+    }, 2000);
   };
 
   const isStep1Valid = formData.postalCode && formData.address && formData.city && formData.state;
@@ -152,31 +163,7 @@ const PaymentPage = () => {
 
           {/* Payment Content */}
           {paymentMethod === 'qr' && (
-            <Card className="bg-gradient-to-br from-secondary/5 to-primary/5 border-0">
-              <CardContent className="p-8 text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                  <QrCode className="w-20 h-20 text-secondary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">
-                  Escanea el código QR
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Usa tu billetera digital para escanear y completar el pago de forma segura
-                </p>
-                <div className="bg-white/50 rounded-lg p-4 mb-6">
-                  <p className="text-sm font-medium text-foreground">
-                    Monto a pagar: <span className="text-secondary font-bold">$150.00 USDT</span>
-                  </p>
-                </div>
-                <Button 
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white"
-                  onClick={() => window.open('https://wa.me/+59171234567?text=pago%20qr', '_blank')}
-                >
-                  <QrCode className="w-4 h-4 mr-2" />
-                  Generar QR de Pago
-                </Button>
-              </CardContent>
-            </Card>
+            <QRPaymentCard onConfirm={handleQRPaymentConfirm} />
           )}
 
           {paymentMethod === 'card' && (
