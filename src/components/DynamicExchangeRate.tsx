@@ -21,13 +21,13 @@ const DynamicExchangeRate = ({
   const getVariantStyles = () => {
     switch (variant) {
       case 'hero':
-        return 'text-4xl md:text-5xl font-bold text-secondary';
+        return 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary';
       case 'social':
-        return 'text-3xl font-bold text-secondary';
+        return 'text-2xl sm:text-3xl font-bold text-secondary';
       case 'value':
-        return 'text-2xl font-bold text-secondary';
+        return 'text-xl sm:text-2xl font-bold text-secondary';
       default:
-        return 'text-4xl font-bold text-secondary';
+        return 'text-2xl sm:text-3xl md:text-4xl font-bold text-secondary';
     }
   };
 

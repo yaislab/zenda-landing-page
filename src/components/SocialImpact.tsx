@@ -91,30 +91,30 @@ const SocialImpact = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+          <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mb-4 px-4">
             <Button 
               variant="hero" 
               size="xl"
               onClick={handleJoinRevolution}
-              className="font-semibold"
+              className="font-semibold w-full sm:w-auto"
             >
-              Únete a la revolución financiera con Zenda
+              Únete a la revolución con Zenda
             </Button>
             
             <Button 
               variant="outline" 
               size="lg"
               onClick={handleWaitlistClick}
-              className="font-medium bg-gradient-to-r from-secondary/10 to-primary/10 border-secondary/30 text-secondary hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 group relative overflow-hidden"
+              className="font-semibold bg-gradient-to-r from-secondary/30 to-primary/30 border-secondary/60 text-secondary hover:bg-secondary/40 hover:border-secondary/80 transition-all duration-300 group relative overflow-hidden w-full sm:w-auto shadow-lg"
             >
-              <div className="absolute inset-0 bg-secondary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              <span className="relative z-10 flex items-center gap-2">
+              <div className="absolute inset-0 bg-secondary/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <span className="relative z-10 flex items-center gap-2 justify-center">
                 <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                Lista de Espera
+                <span className="text-sm sm:text-base font-semibold">Lista de Espera</span>
               </span>
             </Button>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Construyendo el futuro de las remesas en Bolivia
           </p>
         </div>
